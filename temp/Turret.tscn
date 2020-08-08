@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Turret.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Turret.png" type="Texture" id=2]
+[ext_resource path="res://Projectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/SFX/TurretShoot.wav" type="AudioStream" id=4]
+
+[node name="AttackTurret" type="StaticBody2D"]
+script = ExtResource( 1 )
+cooldown = 2.0
+bullet = ExtResource( 3 )
+flip = true
+sfx = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -13.6478, -5.23062, -10.0913, -4.27311, -0.242626, -6.18813, 2.49312, -9.19744, 10.9739, -9.33423, 13.7097, -5.23062, 13.5729, 1.60874, 9.46926, 5.71236, 9.19569, 15.6978, 4.27135, 15.6978, 4.13456, 5.02842, 0.167736, 2.29268, -10.3649, 0.514446, -14.1949, 1.0616, -16.5203, -1.53736, -16.6571, -2.90524 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -19, -2 )
+
+[node name="Cooldown" type="Timer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+[connection signal="timeout" from="Cooldown" to="." method="_on_Cooldown_timeout"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://EndscreenHUD.gd" type="Script" id=1]
+[ext_resource path="res://LevelSelectScreen/Styles/Pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://LevelSelectScreen/Styles/Normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://LevelSelectScreen/Styles/Disabled.tres" type="StyleBox" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="onScreenTime" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOver" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -7.0
+margin_right = 20.0
+margin_bottom = 7.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RewindCounter" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeElapsed" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -139.0
+margin_top = -160.0
+margin_right = 147.0
+margin_bottom = -58.0
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextLevel" type="Button" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -139.0
+margin_top = -15.0
+margin_right = 147.0
+margin_bottom = 87.0
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
+text = "Next Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="onScreenTime" to="." method="_on_onScreenTime_timeout"]
+[connection signal="pressed" from="CanvasLayer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="CanvasLayer/NextLevel" to="." method="_on_NextLevel_pressed"]

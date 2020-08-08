@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/AttackDroid.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Level00.gd" type="Script" id=3]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Intercom.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Spikes.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0, 1 )
+colors = PoolColorArray( 0.392157, 0, 1, 1, 0.223529, 0.0745098, 0.341176, 1, 0.027451, 0.0235294, 0.0313726, 1 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.97931, 0.436642 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+angular_velocity = 9.0
+orbit_velocity = 3.0
+orbit_velocity_random = 0.0
+linear_accel = 2.0
+angle = 180.0
+angle_random = 1.0
+scale = 20.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[node name="Level0" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+Gravity = 315
+acceleration = 0.6
+rewindCounter = 3
+
+[node name="Particles2D" parent="." index="3"]
+process_material = SubResource( 5 )
+
+[node name="Spike" parent="." index="4" instance=ExtResource( 6 )]
+position = Vector2( 686.903, 433.87 )
+
+[node name="TileMap" parent="." index="5"]
+tile_data = PoolIntArray( 393214, 0, 0, 393215, 0, 2, 458750, 0, 65536, 458751, 0, 65538, 524286, 0, 65536, 524287, 0, 65538, 589822, 0, 65536, 589823, 0, 65538, 655358, 0, 65536, 655359, 0, 65538, 720894, 0, 65536, 720895, 0, 65538, 655360, 8, 0, 655398, 8, 0, 786430, 0, 65536, 786431, 0, 65537, 720896, 0, 2, 720897, 4, 0, 720916, 0, 65537, 720919, 0, 65537, 720926, 0, 65537, 720930, 0, 0, 720931, 0, 1, 720932, 0, 1, 720933, 0, 1, 720934, 0, 1, 720935, 0, 1, 720936, 0, 2, 851966, 0, 65536, 851967, 0, 65537, 786432, 0, 65538, 786435, 4, 0, 786449, 0, 65537, 786452, 0, 65537, 786455, 0, 65537, 786456, 14, 0, 786459, 14, 0, 786462, 0, 65537, 786463, 0, 65537, 786464, 0, 65537, 786465, 0, 65537, 786466, 0, 65537, 786467, 0, 131073, 786468, 0, 131073, 786469, 0, 131073, 786470, 0, 131073, 786471, 0, 131073, 786472, 0, 131074, 917502, 0, 65536, 917503, 0, 65537, 851968, 0, 65537, 851969, 0, 1, 851970, 0, 1, 851971, 0, 1, 851972, 0, 1, 851973, 0, 1, 851974, 0, 1, 851975, 0, 1, 851976, 0, 2, 851977, 14, 0, 851980, 0, 0, 851981, 0, 1, 851982, 0, 1, 851983, 0, 1, 851984, 0, 1, 851985, 0, 65537, 851986, 0, 1, 851987, 0, 1, 851988, 0, 65537, 851991, 0, 65537, 983038, 0, 131072, 983039, 0, 131073, 917504, 0, 131073, 917505, 0, 131073, 917506, 0, 131073, 917507, 0, 131073, 917508, 0, 131073, 917509, 0, 131073, 917510, 0, 131073, 917511, 0, 131073, 917512, 0, 131074, 917516, 0, 131072, 917517, 0, 131073, 917518, 0, 131073, 917519, 0, 131073, 917520, 0, 131073, 917521, 0, 131073, 917522, 0, 131073, 917523, 0, 131073, 917524, 0, 65537, 917525, 0, 65537, 917526, 0, 65537, 917527, 0, 65537 )
+
+[node name="Trigger" parent="." index="8"]
+position = Vector2( 1230.6, 275.563 )
+
+[node name="Position2D2" parent="Trigger" index="1"]
+position = Vector2( -0.385681, 64.4495 )
+
+[node name="Position2D" parent="." index="9"]
+position = Vector2( 14.271, 332.474 )
+
+[node name="AttackDroid" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 949.879, 368.089 )
+
+[node name="Spaceman" parent="." index="11"]
+position = Vector2( 15.4757, 328.858 )
+
+[node name="AttackTurret" parent="." index="13" instance=ExtResource( 4 )]
+position = Vector2( 1097.37, 337.372 )
+flip = false
+
+[node name="Intercom" parent="." index="14" instance=ExtResource( 5 )]
+position = Vector2( 6.91231, 275.026 )
+rotation = -0.118915
+onScreenTime = 2.25
+
+[node name="ParallaxBackground" parent="." index="16"]
+scroll_ignore_camera_zoom = true
+
+[node name="Spike2" parent="." index="17" instance=ExtResource( 6 )]
+position = Vector2( 721.423, 434.306 )

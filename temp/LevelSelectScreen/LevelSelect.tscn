@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://LevelSelectScreen/LevelIcon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://LevelSelectScreen/LevelSelect.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.698039, 0.313726, 0, 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.0
+margin_top = -8.0
+margin_right = -12.0
+margin_bottom = -8.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+levelIcon = ExtResource( 1 )
+levelScenes = [ "res://Levels/Level0.tscn", "res://Levels/Level1.tscn", "res://Levels/Level2.tscn", "res://Levels/Level3.tscn", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ]
+
+[node name="HSlider" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 303.0
+margin_top = 190.0
+margin_right = 511.0
+margin_bottom = 206.0
+custom_styles/grabber_area = SubResource( 1 )
+min_value = -80.0
+max_value = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider2" type="HSlider" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 303.0
+margin_top = 236.0
+margin_right = 511.0
+margin_bottom = 252.0
+custom_styles/grabber_area = SubResource( 1 )
+min_value = -80.0
+max_value = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="HSlider2" to="." method="_on_HSlider2_value_changed"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Sprites/TurretBullet1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/TurretBullet3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/TurretBullet5.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/TurretBullet4.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/TurretBullet7.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/TurretBullet8.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/TurretBullet2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/TurretBullet6.png" type="Texture" id=8]
+[ext_resource path="res://Projectile.gd" type="Script" id=9]
+[ext_resource path="res://Assets/SFX/BulletExplosion.wav" type="AudioStream" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 4.05126
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource( 9 )
+speed = 250
+damage = 1
+timer = 5.0
+sfx = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+
+[node name="Lifetime" type="Timer" parent="."]
+one_shot = true
+autostart = true
+[connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
+[connection signal="timeout" from="Lifetime" to="." method="_on_Lifetime_timeout"]

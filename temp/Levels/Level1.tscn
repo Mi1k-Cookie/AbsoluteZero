@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/Level1.gd" type="Script" id=1]
+[ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/AttackDroid.tscn" type="PackedScene" id=3]
+
+[node name="Level1" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+Gravity = 315
+acceleration = 0.6
+rewindCounter = 4
+levelNumber = 1
+
+[node name="TileMap" parent="." index="4"]
+tile_data = PoolIntArray( 851968, 0, 0, 851969, 0, 2, 917504, 0, 65536, 917505, 0, 65538, 917518, 0, 0, 917519, 0, 2, 983040, 0, 65536, 983041, 0, 65538, 983054, 0, 65536, 983055, 0, 65538, 1048576, 0, 65536, 1048577, 0, 65538, 1048590, 0, 65536, 1048591, 0, 65538, 1048600, 8, 0, 1114112, 0, 65536, 1114113, 0, 65537, 1114114, 0, 1, 1114115, 0, 1, 1114116, 0, 2, 1114119, 0, 0, 1114120, 0, 1, 1114121, 0, 1, 1114122, 0, 1, 1114123, 0, 1, 1114124, 0, 1, 1114125, 0, 1, 1114126, 0, 65537, 1114127, 0, 65537, 1114128, 0, 2, 1114131, 0, 0, 1114132, 0, 1, 1114133, 0, 1, 1114134, 0, 1, 1114135, 0, 1, 1114136, 0, 2, 1179648, 0, 131072, 1179649, 0, 131073, 1179650, 0, 131073, 1179651, 0, 131073, 1179652, 0, 131074, 1179655, 0, 131072, 1179656, 0, 131073, 1179657, 0, 131073, 1179658, 0, 131073, 1179659, 0, 131073, 1179660, 0, 131073, 1179661, 0, 131073, 1179662, 0, 131073, 1179663, 0, 131073, 1179664, 0, 65537, 1179665, 0, 65537, 1179666, 0, 65537, 1179667, 0, 65537, 1179668, 0, 131073, 1179669, 0, 131073, 1179670, 0, 131073, 1179671, 0, 131073, 1179672, 0, 131074 )
+
+[node name="Trigger" parent="." index="7"]
+position = Vector2( 783.517, 463.982 )
+
+[node name="Position2D2" parent="Trigger" index="1"]
+position = Vector2( -0.916489, 65.4199 )
+
+[node name="Position2D" parent="." index="8"]
+position = Vector2( 108.513, 538.156 )
+
+[node name="Spaceman" parent="." index="9"]
+position = Vector2( 91.921, 516.509 )
+
+[node name="AttackDroid" parent="." index="10" instance=ExtResource( 3 )]
+position = Vector2( 404.306, 510.166 )
+
+[node name="AttackDroid2" parent="." index="11" instance=ExtResource( 3 )]
+position = Vector2( 640.675, 497.035 )

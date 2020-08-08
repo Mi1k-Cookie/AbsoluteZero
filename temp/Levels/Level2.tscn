@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Levels/Level2.gd" type="Script" id=1]
+[ext_resource path="res://Levels/BaseLevel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Turret.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/AttackDroid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Spikes.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/Door.tscn" type="PackedScene" id=7]
+
+[node name="BaseLevel" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+Gravity = 315
+acceleration = 0.6
+rewindCounter = 5
+levelNumber = 2
+
+[node name="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+visible = false
+
+[node name="TileMap" parent="." index="5"]
+tile_data = PoolIntArray( 1048581, 0, 65537, 1048582, 0, 65537, 1048583, 0, 2, 1114112, 0, 65537, 1114113, 0, 65537, 1114114, 0, 65537, 1114115, 0, 65537, 1114116, 0, 65537, 1114118, 0, 131072, 1114119, 0, 65537, 1114120, 0, 65537, 1114121, 0, 65537, 1114122, 0, 65537, 1114123, 0, 65537, 1114124, 0, 65537, 1114125, 0, 65537, 1114126, 0, 65537, 1114127, 0, 65537, 1114128, 0, 65537, 1114129, 0, 65537, 1114130, 0, 65537, 1114131, 0, 65537, 1114132, 0, 65537, 1114133, 0, 65537, 1114134, 0, 65537, 1114135, 0, 65537, 1114136, 0, 65537, 1114137, 0, 65537, 1638405, 0, 65537, 1638421, 0, 0, 1638422, 0, 1, 1638423, 0, 1, 1638424, 0, 1, 1638425, 0, 1, 1638426, 0, 1, 1638427, 0, 1, 1638428, 0, 1, 1638429, 0, 1, 1638430, 0, 1, 1638431, 0, 1, 1638432, 0, 1, 1638433, 0, 2, 1703957, 0, 131072, 1703958, 0, 131073, 1703959, 0, 131073, 1703960, 0, 131073, 1703961, 0, 131073, 1703962, 0, 131073, 1703963, 0, 131073, 1703964, 0, 131073, 1703965, 0, 131073, 1703966, 0, 131073, 1703967, 0, 131073, 1703968, 0, 131073, 1703969, 0, 131074 )
+
+[node name="Trigger" parent="." index="8"]
+position = Vector2( 784.798, 481.491 )
+
+[node name="Position2D2" parent="Trigger" index="1"]
+position = Vector2( -5.40784, 86.6829 )
+
+[node name="Position2D" parent="." index="9"]
+position = Vector2( 47.2327, 518.459 )
+
+[node name="Spaceman" parent="." index="10"]
+position = Vector2( 48.057, 470.873 )
+
+[node name="Door" parent="." index="13" instance=ExtResource( 7 )]
+position = Vector2( 696.026, 500.891 )
+
+[node name="Spike" parent="." index="14" instance=ExtResource( 6 )]
+position = Vector2( 509.995, 529.343 )
+
+[node name="AttackTurret" parent="." index="15" instance=ExtResource( 4 )]
+position = Vector2( 455.28, 520.588 )
+flip = false
+
+[node name="AttackDroid" parent="." index="16" instance=ExtResource( 5 )]
+position = Vector2( 214.535, 487.759 )
+
+[node name="Button" parent="." index="17" instance=ExtResource( 3 )]
+position = Vector2( 593.162, 529.343 )
+doorName = "Door"

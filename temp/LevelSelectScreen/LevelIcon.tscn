@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://LevelSelectScreen/LevelIcon.gd" type="Script" id=1]
+[ext_resource path="res://LevelSelectScreen/Styles/Disabled.tres" type="StyleBox" id=2]
+[ext_resource path="res://LevelSelectScreen/Styles/Normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://LevelSelectScreen/Styles/Pressed.tres" type="StyleBox" id=4]
+
+[sub_resource type="Theme" id=1]
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="level" type="Button"]
+margin_right = 64.0
+margin_bottom = 64.0
+theme = SubResource( 1 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_level_pressed"]
